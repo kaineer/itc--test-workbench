@@ -17,9 +17,7 @@ export const TextArea = () => {
   }
 
   useEffect(() => {
-    if (ref.current) {
-      ref.current.value = code;
-    }
+    ref.current && (ref.current.value = code);
   }, [code]);
 
   return (

@@ -7,16 +7,13 @@ import { codeSlice } from "../../store/slices/code";
 export const ResetButton = ({ text = "Сбросить" }: ButtonProps) => {
   const dispatch = useDispatch();
   const { resetCode } = codeSlice.actions;
-
   const className = classes.danger;
-  const handleClick = () => {
-    dispatch(resetCode());
-  }
 
   return (
     <BaseButton
       className={ className }
       text={ text }
-      onClick={handleClick} />
+      onClick={() => dispatch(resetCode())}
+    />
   );
 }
