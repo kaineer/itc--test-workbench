@@ -7,14 +7,21 @@ import { TextArea } from './components/layout/TextArea'
 import { LeftPanel } from './components/panels/LeftPanel'
 import { RightPanel } from './components/panels/RightPanel'
 import { Tasks } from './components/layout/Tasks'
+import { SyntaxChecker } from './components/layout/code/SyntaxChecker'
+import { useSelector } from 'react-redux'
+import { codeSlice } from './store/slices/code'
 
 function App() {
+  const { getCodeIsValid } = codeSlice.selectors;
+  const valid = useSelector(getCodeIsValid);
+
   return (
     <MainContainer>
       <LeftPanel>
         <TextArea />
+        <SyntaxChecker />
         <ButtonGroup>
-          <SendButton text="Проверить" />
+          <SendButton text={ valid ? "Проверить" : "Исправить" } />
           <ResetButton />
         </ButtonGroup>
       </LeftPanel>
