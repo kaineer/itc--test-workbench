@@ -6,6 +6,7 @@ import { SendButton } from './components/buttons/SendButton'
 import { TextArea } from './components/layout/TextArea'
 import { LeftPanel } from './components/panels/LeftPanel'
 import { RightPanel } from './components/panels/RightPanel'
+import { Tasks } from './components/layout/Tasks'
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
         </ButtonGroup>
       </LeftPanel>
       <RightPanel>
-        <h1>Hello</h1>
+        <Tasks />
       </RightPanel>
     </MainContainer>
   )

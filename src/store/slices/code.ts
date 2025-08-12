@@ -4,8 +4,10 @@ interface CodeContent {
   code: string;
 }
 
+const initialValue = "bububub";
+
 const initialState: CodeContent = {
-  code: "bububub"
+  code: initialValue
 }
 
 export const codeSlice = createSlice({
@@ -14,7 +16,10 @@ export const codeSlice = createSlice({
   reducers: {
     setCode: (state, action) => {
       state.code = action.payload;
-    }
+    },
+    resetCode: (state) => {
+      state.code = initialValue;
+    },
   },
   selectors: {
     getCode: (state) => state.code,

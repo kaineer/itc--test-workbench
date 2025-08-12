@@ -1,6 +1,6 @@
 .panel {
   flex: 1;
-  padding: 20px;
+  padding: 10px 12px;
   box-sizing: border-box;
   background-color: #eceff4;
   overflow-y: auto;
