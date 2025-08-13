@@ -15,7 +15,5 @@ it("should return content", () => {
 
 it("should return variable array", () => {
   const tc = testcase(dir, "01.js");
-  expect(tc.results.length).toBe(2);
-  expect(tc.results.includes("first")).toBeTruthy();
-  expect(tc.results.includes("second")).toBeTruthy();
+  expect(tc.results).toEqual(["first", "second"]);
 });

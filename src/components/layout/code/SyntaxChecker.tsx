@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { codeSlice } from "../../../store/slices/code";
-import { parse } from "acorn";
 import { useEffect } from "react";
+import { parseWithAcorn } from "../../../utils/parseWithAcorn";
 
 export const SyntaxChecker = () => {
   const { setValid } = codeSlice.actions;
@@ -12,7 +12,7 @@ export const SyntaxChecker = () => {
   useEffect(() => {
     let valid = true;
     try {
-      parse(code);
+      parseWithAcorn(code);
     } catch (err) {
       valid = false;
     }
