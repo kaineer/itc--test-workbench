@@ -1,16 +1,20 @@
-import { join } from "path"
-import { readFileSync } from "fs"
+import { join } from "path";
+import { readFileSync } from "fs";
+import { Converter } from "showdown";
+import type { Directory } from "./directory";
 
-export const readAndTransform = (directory: string): string => {
+/**
+ * Read description from directory and transform it to html
+ *
+ * @param directory - source directory for unittest
+ */
+export const readAndTransform = (dir: Directory): string => {
   try {
-    const fullPath = join(directory, "description.md");
-    const content = readFileSync(fullPath).toString();
+    const content = dir.file("description.md");
+    const converter = new Converter;
+    const html = converter.makeHtml(content);
+    return html;
   } catch (err) {
-    return "";
+    return err.toString();
   }
-
-  // 1. Join directory + "/description.md"
-  // 2. If file is not found, return empty string
-  // 3. Read file
-  // 4. Apply markdown transformer
 }
