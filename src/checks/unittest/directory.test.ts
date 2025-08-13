@@ -36,4 +36,7 @@ it("should be able to produce subdir object", () => {
   const testDir = dir.subdir("tests");
 
   expect(testDir.exists()).toBeTruthy();
+  expect(
+    testDir.file("01.js").includes("hello, subdir")
+  ).toBeTruthy();
 });
