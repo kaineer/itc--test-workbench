@@ -3,6 +3,10 @@ import { readFileSync } from "fs";
 import { Converter } from "showdown";
 import type { Directory } from "./directory";
 
+// TODO: сделать здесь функцию description()
+//  А уже внутри читать содержимое, трансформировать,
+//  возвращать title, text и html
+
 /**
  * Read description from directory and transform it to html
  *
