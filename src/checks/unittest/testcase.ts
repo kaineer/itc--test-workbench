@@ -4,8 +4,10 @@ import { parseWithAcorn } from "../../utils/parseWithAcorn";
 import type { Directory } from "./directory";
 
 const type = (t: string) => (n: any) => n.type === t;
+const varDeclaration = type('VariableDeclaration');
+
 const getVarNames = (ast: any) => {
-  const declaration = ast.body.filter(type('VariableDeclaration'))[0];
+  const declaration = ast.body.filter(varDeclaration)[0];
   return declaration.declarations[0].id.properties.map((n: any) => (
     n.key.name
   ));

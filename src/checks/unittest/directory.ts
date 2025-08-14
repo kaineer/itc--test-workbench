@@ -5,7 +5,7 @@ export interface Directory {
   exists: () => boolean;
   file: (name: string) => string;
   files: () => string[];
-  subdir: (sub: string) => Directory
+  subdir: (sub: string) => Directory;
 }
 
 export const directory = (dir: string): Directory => ({
