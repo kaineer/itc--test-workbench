@@ -17,9 +17,10 @@ it("should run unittest with defined hello function", () => {
     "function hello() {", "  return 'world'", "}"
   ));
 
-  expect(results).toEqual([
-    { ok: true, failed: false, title: "function should be defined" },
-    { ok: true, failed: false, title: "function should return world" }
+  expect(results.map(r => r.ok)).toEqual([ true, true ]);
+  expect(results.map(r => r.title)).toEqual([
+    "function should be defined",
+    "function should return world"
   ]);
 });
 
@@ -28,6 +29,9 @@ it("should run unittest with missing result", () => {
     "function hello() {", "  return ''", "}"
   ));
 
-  expect(results[0].ok).toBeTruthy();
-  expect(results[1].ok).toBeFalsy();
+  expect(results.map(r => r.ok)).toEqual([ true, false ]);
+  expect(results.map(r => r.message)).toEqual([
+    void 0,
+    "hello() должна возвращать 'world'"
+  ]);
 });

@@ -21,7 +21,7 @@ export const runner = (
   } catch (err) {
     return {
       failed: true,
-      message: err.toString(),
+      message: err.message ? err.message : String(err),
     }
   }
   return { failed: false };
