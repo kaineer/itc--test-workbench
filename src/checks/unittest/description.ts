@@ -1,7 +1,11 @@
-import { join } from "path";
-import { readFileSync } from "fs";
 import { Converter } from "showdown";
 import type { Directory } from "./directory";
+
+// Что еще м.б. в description:
+//
+// Как вариант, можно положить в заголовок md-файла
+// yaml-мету c id, order и каким-нибудь статусом
+// (вроде skipped, legacy, arrays и тп.)
 
 export interface Description {
   title: string;
