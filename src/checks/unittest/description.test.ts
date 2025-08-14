@@ -3,9 +3,9 @@ import { description as loadDescription } from "./description"
 import { directory } from "./directory"
 
 import { join, dirname } from "path"
+import { getFixturePath } from "../../utils/fixtures";
 
-const __dirname = dirname(import.meta.url).slice('file:/'.length);
-const fixturePath = join(__dirname, "./fixtures/description")
+const fixturePath = getFixturePath(import.meta.url);
 
 const dir = directory(fixturePath);
 const desc = loadDescription(dir);

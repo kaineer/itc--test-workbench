@@ -3,8 +3,24 @@
 import { parseWithAcorn } from "../../utils/parseWithAcorn";
 import type { Directory } from "./directory";
 
+export interface TestCase {
+  results: string[];
+  content: string;
+  title: string;
+}
+
 const type = (t: string) => (n: any) => n.type === t;
 const varDeclaration = type('VariableDeclaration');
+
+const titlePrefix = "// TASK:";
+const getTitle = (code: string): string => {
+  const line = code.split("\n").find((l) => l.startsWith(titlePrefix));
+
+  if (line) {
+    return line.slice(titlePrefix.length).trim();
+  }
+  return "";
+}
 
 const getVarNames = (ast: any) => {
   const declaration = ast.body.filter(varDeclaration)[0];
@@ -13,13 +29,15 @@ const getVarNames = (ast: any) => {
   ));
 }
 
-export const testcase = (dir: Directory, name: string) => {
+export const testcase = (dir: Directory, name: string): TestCase => {
   const content = dir.file(name);
   const results: string[] = getVarNames(
     parseWithAcorn(content)
   );
+  const title = getTitle(content);
 
   return {
+    title,
     results,
     content,
   };

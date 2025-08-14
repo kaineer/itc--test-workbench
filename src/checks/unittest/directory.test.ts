@@ -1,9 +1,9 @@
 import { it, expect } from "vitest"
 import { directory } from "./directory";
 import { join, dirname } from "path"
+import { getFixturePath } from "../../utils/fixtures";
 
-const __dirname = dirname(import.meta.url).slice('file:/'.length);
-const fixturePath = join(__dirname, "./fixtures/directory");
+const fixturePath = getFixturePath(import.meta.url);
 
 it("should return true for existing directory", () => {
   const dir = directory(fixturePath);

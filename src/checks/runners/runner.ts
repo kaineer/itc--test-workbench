@@ -1,7 +1,7 @@
 import { createContext, Script } from "vm"
 
 // asserts exports all usable asserts
-import { asserts } from './assert'
+import { asserts } from "../asserts/assert";
 
 interface RunnerResult {
   failed: boolean;
@@ -10,7 +10,7 @@ interface RunnerResult {
 
 export const runner = (
   code: string
-) => {
+): RunnerResult => {
   const script = new Script(code);
   const context = { ...asserts };
 
