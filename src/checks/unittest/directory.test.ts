@@ -24,11 +24,9 @@ it("should be able to read file content", () => {
 
 it("should be able to enumerate files", () => {
   const dir = directory(fixturePath);
-  const files = dir.files();
+  const files = dir.files().sort();
 
-  expect(files.length).toBeGreaterThanOrEqual(2);
-  expect(files.includes("01")).toBeTruthy();
-  expect(files.includes("02")).toBeTruthy();
+  expect(files).toEqual(["01", "02", "content.txt"]);
 });
 
 it("should be able to produce subdir object", () => {
