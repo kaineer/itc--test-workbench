@@ -5,7 +5,7 @@ import { noop } from "../../utils/functions";
 
 interface BaseButtonProps extends ButtonProps {
   className: string;
-  readonly: boolean;
+  readonly?: boolean;
 }
 
 export const BaseButton = ({ className, text, readonly = false, onClick = noop }: BaseButtonProps) => {
@@ -17,7 +17,7 @@ export const BaseButton = ({ className, text, readonly = false, onClick = noop }
   }
 
   return (
-    <div className={buttonClassName} onClick={onClick}>
+    <div className={buttonClassName} onClick={handleClick}>
       { text }
     </div>
   )

@@ -1,15 +1,19 @@
-import { it, expect } from "vitest"
-import { directory } from "./directory";
-import { getFixturePath } from "../../utils/fixtures";
+import { it, expect } from 'vitest'
+import { directory } from './directory'
+import { getFixturePath } from '../utils/fixtures'
 
 const fixturePath = getFixturePath(import.meta.url);
 
-it("should return true for existing directory", () => {
+it('should be a function', () => {
+  expect(typeof directory).toBe('function');
+});
+
+it('should define if directory exists', () => {
   const dir = directory(fixturePath);
   expect(dir.exists()).toBeTruthy();
 });
 
-it("should return false for non-existing directory", () => {
+it('should define if directory does not exist', () => {
   const dir = directory(fixturePath + "abcdefghijk");
   expect(dir.exists()).not.toBeTruthy();
 });
