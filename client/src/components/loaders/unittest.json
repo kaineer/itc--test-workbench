@@ -1,0 +1,23 @@
+{
+  "id": "hello",
+  "description": {
+    "meta": {},
+    "text": "# Hello test\n\nСоздайте функцию с именем `hello` и сделайте так, чтобы она возвращала значение `\"world\"`\n",
+    "html": "<h1 id=\"hellotest\">Hello test</h1>\n<p>Создайте функцию с именем <code>hello</code> и сделайте так, чтобы она возвращала значение <code>\"world\"</code></p>",
+    "title": "Создаем функцию hello"
+  },
+  "template": "// Создайте функцию hello\nconst hello = null;\n",
+  "cases": [
+    {
+      "title": "hello должна быть функцией",
+      "results": ["hello"],
+      "content": "// TASK: hello должна быть функцией\nconst { hello } = result;\n\nassertIsFunction(hello, \"Должна быть функцией\");\n"
+    },
+    {
+      "title": "hello должна возвращать \"world\"",
+      "results": ["hello"],
+      "content": "// TASK: Должна возвращать \"world\"\nconst { hello } = result;\n\nassertEqual(hello(), \"world\");\n"
+    }
+  ],
+  "resultVars": ["hello"]
+}
