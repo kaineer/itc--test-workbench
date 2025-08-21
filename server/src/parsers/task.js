@@ -33,8 +33,10 @@ export const task = (dir) => {
 
   const goals = files.map((f) => getGoal(f, testDir.file(f)));
 
+  // TODO: а еще надо resultVars перенести
+
   return {
-    title: "", // TODO: get it
+    title: desc.title,
     description: desc,
     template: tpl,
     cases: goals,
