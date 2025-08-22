@@ -22,6 +22,11 @@ it("should be a function", () => {
   expect(course).toBeTypeOf("function");
 });
 
+it("should get a source dir as path", () => {
+  const { path } = course(dir);
+  expect(path).toBe(fixturePath);
+});
+
 it("should get a title", () => {
   const { title } = course(dir);
   expect(title).toBe("Course title");
