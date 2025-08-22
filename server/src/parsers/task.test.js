@@ -7,7 +7,6 @@ import { getFixturePath } from '../utils/fixtures';
 const fixturePath = getFixturePath(import.meta.url);
 const dir = directory(fixturePath);
 
-
 afterAll(() => {
   dir.rmUUID();
 });
@@ -18,6 +17,11 @@ it("should be a function", () => {
 
 it("should return an object", () => {
   expect(task(dir)).toBeTypeOf("object");
+});
+
+it("should have a path to reread", () => {
+  const { path } = task(dir);
+  expect(path).toBe(fixturePath);
 });
 
 it("should have an uuid", () => {

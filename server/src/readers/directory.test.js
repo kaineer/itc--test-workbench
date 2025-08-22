@@ -13,6 +13,11 @@ it('should define if directory exists', () => {
   expect(dir.exists()).toBeTruthy();
 });
 
+it('should return fixturePath as path result', () => {
+  const dir = directory(fixturePath);
+  expect(dir.path()).toBe(fixturePath);
+});
+
 it('should define if directory does not exist', () => {
   const dir = directory(fixturePath + "abcdefghijk");
   expect(dir.exists()).not.toBeTruthy();

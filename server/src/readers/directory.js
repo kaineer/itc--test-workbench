@@ -30,6 +30,9 @@ export const directory = (dir) => {
   }
 
   return {
+    path() {
+      return dir;
+    },
     UUID() {
       const existingUuid = file("uuid");
       if (existingUuid !== "") {

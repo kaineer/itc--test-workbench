@@ -18,6 +18,7 @@ export const task = (dir) => {
   });
 
   return {
+    path: dir.path(),
     uuid,
     title: desc.title,
     description: desc,
