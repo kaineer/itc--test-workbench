@@ -14,6 +14,8 @@ it("should be a function", () => {
 });
 
 afterAll(() => {
+  // Было желание закинуть это дело прямо в считыватели
+  //   но там эта функциональность на фиг не сдалась
   const courseDirs = dir.subdir("courses").directories();
   courseDirs.forEach((coursePath) => {
     const courseDir = directory(

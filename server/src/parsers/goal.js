@@ -1,4 +1,4 @@
-import { split, lines } from "../utils/text";
+import { split, lines, startsWith } from "../utils/text";
 import { parse } from 'yaml';
 import { parseWithAcorn } from '../utils/parseWithAcorn'
 
@@ -37,7 +37,7 @@ const loadMetadataAsYAML = (comments) => {
 
 const loadMetadata = (source) => {
   const comments = split(source)
-    .filter((l) => l.startsWith("// "))
+    .filter(startsWith("// "))
     .map((l) => l.slice("//".length).trimLeft());
   const tagFound = !!comments.find((l) => l.startsWith("TASK:"));
 

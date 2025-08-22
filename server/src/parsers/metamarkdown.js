@@ -1,9 +1,10 @@
 import { Converter } from 'showdown'
 import { parse } from 'yaml'
+import { startsWith } from '../utils/text';
 
 const getTitle = (markdown) => {
   const lines = markdown.split('\n');
-  const line = lines.find((l) => l.startsWith('#'));
+  const line = lines.find(startsWith('#'));
 
   if (line) {
     const spaceIdx = line.indexOf(" ");
