@@ -1,8 +1,8 @@
-// TODO: tests?
+import { course } from './course'
 
 export const courses = (dir) => {
   const coursesDir = dir.subdir("courses");
-  const courses = [];
+  const list = [];
   const coursesHash = {};
   const tasksHash = {};
 
@@ -10,7 +10,7 @@ export const courses = (dir) => {
     const cdd = coursesDir.subdir(cd);
     const cc = course(cdd);
 
-    courses.push(cc);
+    list.push(cc);
     coursesHash[cc.uuid] = cc;
 
     cc.tasks.forEach((ct) => {
@@ -20,7 +20,7 @@ export const courses = (dir) => {
 
   return {
     // Просто список курсов
-    courses,
+    courses: list,
     // Курсы по uuid
     coursesHash,
     // Таски по uuid
