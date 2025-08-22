@@ -1,29 +1,39 @@
 import { metamarkdown } from './metamarkdown'
 import { goal } from './goal'
+import { endsWith } from '../utils/text';
 
-export const task = (dir) => {
-  const desc = metamarkdown(dir.file("description.md"));
-  const tpl = dir.file("template.js");
-  const uuid = dir.UUID();
+const getDescription = (dir) => metamarkdown(dir.file("description.md"));
+const getTemplate = (dir) => dir.file("template.js");
+const getUUID = (dir) => dir.UUID();
+const getTitle = (description) => description.title;
 
+const getCases = (dir) => {
   const testsDir = dir.subdir("tests");
-  const files = testsDir.exists() ? testsDir.files().filter((f) => f.endsWith(".js")) : [];
-
+  const files = testsDir.exists() ? testsDir.files().filter(endsWith(".js")) : [];
   const goals = files.map((f) => goal(testsDir.file(f), f));
 
-  const rv = new Set();
+  return goals;
+}
 
-  goals.forEach((goal) => {
-    goal.resultVars.forEach((v) => rv.add(v));
+const getResultVars = (cases) => {
+  const rv = new Set;
+  cases.forEach((cs) => {
+    cs.resultVars.forEach((v) => rv.add(v));
   });
+  return [...rv];
+}
+
+export const task = (dir) => {
+  const description = getDescription(dir);
+  const cases = getCases(dir);
 
   return {
     path: dir.path(),
-    uuid,
-    title: desc.title,
-    description: desc,
-    template: tpl,
-    cases: goals,
-    resultVars: [...rv],
+    uuid: getUUID(dir),
+    title: getTitle(description),
+    description,
+    template: getTemplate(dir),
+    cases,
+    resultVars: getResultVars(cases),
   }
 }
