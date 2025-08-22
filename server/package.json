@@ -5,6 +5,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "serve": "node ./src/index.js",
     "test": "vitest"
   },
   "keywords": [],
@@ -16,6 +17,7 @@
     "acorn": "8.15.0",
     "fastify": "5.5.0",
     "showdown": "2.1.0",
+    "uuid": "11.1.0",
     "yaml": "2.8.1"
   },
   "devDependencies": {

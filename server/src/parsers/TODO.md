@@ -1,7 +1,7 @@
  * [x] directory
  * [x] metamarkdown
  * [x] goal
- * [ ] task
+ * [x] task
    * осталось перенести resultVars
  * [ ] course
  * [ ] course list

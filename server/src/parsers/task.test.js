@@ -1,4 +1,4 @@
-import { it, expect } from 'vitest'
+import { it, expect, afterAll } from 'vitest'
 import { task } from './task'
 
 import { directory } from '../readers/directory'
@@ -7,12 +7,22 @@ import { getFixturePath } from '../utils/fixtures';
 const fixturePath = getFixturePath(import.meta.url);
 const dir = directory(fixturePath);
 
+
+afterAll(() => {
+  dir.rmUUID();
+});
+
 it("should be a function", () => {
   expect(task).toBeTypeOf("function");
 });
 
 it("should return an object", () => {
   expect(task(dir)).toBeTypeOf("object");
+});
+
+it("should have an uuid", () => {
+  const { uuid } = task(dir);
+  expect(uuid).toBeTypeOf('string');
 });
 
 it("should return a title for task", () => {
@@ -49,4 +59,10 @@ it("should return cases", () => {
   expect(case02.id).toBe("02.js");
   expect(case02.title).toBe("assert returns world");
   expect(case02.depends).toEqual([]);
+});
+
+it("should return resultVars", () => {
+  const { resultVars } = task(dir);
+
+  expect(resultVars).toEqual(["hello"]);
 });

@@ -14,8 +14,6 @@ const useRoutes = async (name) => {
   routes(fastify);
 }
 
-await useRoutes("courses");
-
 fastify.get("/", (req, res) => {
   res.send({ hello: "world" });
 });
