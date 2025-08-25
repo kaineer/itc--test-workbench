@@ -1,4 +1,4 @@
-import { course } from './course'
+import { course } from './course.js'
 
 export const courses = (dir) => {
   const coursesDir = dir.subdir("courses");

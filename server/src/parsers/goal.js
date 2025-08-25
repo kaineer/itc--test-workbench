@@ -1,6 +1,6 @@
-import { split, lines, startsWith } from "../utils/text";
+import { split, lines, startsWith } from "../utils/text.js";
 import { parse } from 'yaml';
-import { parseWithAcorn } from '../utils/parseWithAcorn'
+import { parseWithAcorn } from '../utils/parseWithAcorn.js'
 
 const taskTagPrefix = "TASK:";
 const depTagPrefix = "DEPENDS:";

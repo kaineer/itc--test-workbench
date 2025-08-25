@@ -1,5 +1,5 @@
-import { metamarkdown } from "./metamarkdown";
-import { task } from "./task"
+import { metamarkdown } from "./metamarkdown.js";
+import { task } from "./task.js"
 
 const loadDirectory = (taskDir, { tasks, hash, uuid }) => (name) => {
   const dir = taskDir.subdir(name);

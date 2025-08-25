@@ -1,7 +1,8 @@
 import { it, expect, afterAll } from 'vitest'
+import { join } from 'path';
+
 import { course } from './course'
 import { courses } from './courses'
-import { join } from 'path';
 
 import { directory } from '../readers/directory'
 import { getFixturePath } from '../utils/fixtures';

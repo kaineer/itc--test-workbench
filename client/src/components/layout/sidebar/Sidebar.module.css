@@ -1,0 +1,15 @@
+.sidebar {
+  width: 10px;
+  background-color: #eceff4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px 0;
+  gap: 20px;
+
+  transition: width 0.3s;
+
+  &.revealed {
+    width: 50px;
+  }
+}

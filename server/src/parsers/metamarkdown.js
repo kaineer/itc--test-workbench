@@ -1,6 +1,8 @@
-import { Converter } from 'showdown'
+import showdown from 'showdown';
+const { Converter } = showdown;
+
 import { parse } from 'yaml'
-import { startsWith } from '../utils/text';
+import { startsWith } from '../utils/text.js';
 
 const getTitle = (markdown) => {
   const lines = markdown.split('\n');

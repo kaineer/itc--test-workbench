@@ -5,7 +5,7 @@ interface CodeContent {
   valid: boolean;
 }
 
-const initialValue = "bububub";
+const initialValue = "";
 
 const initialState: CodeContent = {
   code: initialValue,

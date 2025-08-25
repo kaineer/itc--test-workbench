@@ -1,6 +1,6 @@
-import { metamarkdown } from './metamarkdown'
-import { goal } from './goal'
-import { endsWith } from '../utils/text';
+import { metamarkdown } from './metamarkdown.js'
+import { goal } from './goal.js'
+import { endsWith } from '../utils/text.js';
 
 const getDescription = (dir) => metamarkdown(dir.file("description.md"));
 const getTemplate = (dir) => dir.file("template.js");
