@@ -12,7 +12,7 @@ const { courses: list, coursesHash, tasksHash } = courses(dir);
 
 export default (fastify) => {
   fastify.get("/courses", (req, res) => {
-    const coursesRoutes = list.map((course) => ({ title: course.title, route: "/courses/" + course.uuid }));
+    const coursesRoutes = list.map((course) => ({ id: course.id, title: course.title, route: "/courses/" + course.uuid }));
     res.send({ courses: coursesRoutes });
   });
 
@@ -27,6 +27,7 @@ export default (fastify) => {
         const { tasks } = courseData;
         const tasksData = tasks.map((task) => {
           return {
+            id: task.id,
             route: "/tasks/" + task.uuid,
             title: task.title,
           }

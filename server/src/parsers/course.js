@@ -4,6 +4,7 @@ import { task } from "./task.js"
 const loadDirectory = (taskDir, { tasks, hash, uuid }) => (name) => {
   const dir = taskDir.subdir(name);
   const taskObj = task(dir);
+  taskObj.id = name;
 
   tasks.push(taskObj);
   hash[taskObj.uuid] = taskObj;

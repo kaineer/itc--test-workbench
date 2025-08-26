@@ -9,6 +9,7 @@ export const courses = (dir) => {
   coursesDir.directories().forEach((cd) => {
     const cdd = coursesDir.subdir(cd);
     const cc = course(cdd);
+    cc.id = cd;
 
     list.push(cc);
     coursesHash[cc.uuid] = cc;
