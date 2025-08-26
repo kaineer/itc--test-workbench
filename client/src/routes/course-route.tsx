@@ -4,12 +4,10 @@ import { Sidebar } from "../components/layout/sidebar/Sidebar";
 import { Stages } from "../components/layout/stages/Stages";
 import { stageSlice } from "../store/slices/stage";
 import { useDispatch } from "react-redux";
+import { useParams } from "react-router";
 
-interface Props {
-  courseId: string;
-}
-
-export const CourseRoute = ({ courseId }: Props) => {
+export const CourseRoute = () => {
+  const { courseId } = useParams();
   const { setCourse } = stageSlice.actions;
   const dispatch = useDispatch();
 
