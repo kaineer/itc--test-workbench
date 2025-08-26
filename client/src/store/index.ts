@@ -3,6 +3,7 @@ import { codeSlice } from './slices/code';
 import { unittestSlice } from './slices/unittest';
 import { stageSlice } from './slices/stage';
 import { coursesApi } from './api/courses';
+import { taskApi } from './api/task';
 
 const slicesReducer = combineSlices(
   codeSlice,
@@ -16,6 +17,7 @@ const reducer = combineReducers({
   [stageSlice.reducerPath]: stageSlice.reducer,
 
   [coursesApi.reducerPath]: coursesApi.reducer,
+  [taskApi.reducerPath]: taskApi.reducer,
 });
 
 export const setupStore = () => configureStore({
@@ -23,6 +25,7 @@ export const setupStore = () => configureStore({
   middleware: (getDefaultMiddleware) => {
     return getDefaultMiddleware().concat(
       coursesApi.middleware,
+      taskApi.middleware,
     )
   },
 });

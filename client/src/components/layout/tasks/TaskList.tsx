@@ -13,6 +13,7 @@ interface Task {
 
 const renderTask = (task: Task) => {
   return <TaskItem
+    key={task.id}
     { ...task }
   />
 }

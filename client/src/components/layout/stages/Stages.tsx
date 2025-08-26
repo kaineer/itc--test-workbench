@@ -2,6 +2,8 @@ import { useSelector } from "react-redux";
 import { stageCourse, stageDescription, stageList, stageSlice, stageTask } from "../../../store/slices/stage"
 import { Solving } from "./solving/Solving";
 import { Courses } from "./courses-list/Courses";
+import { Course } from "./course/Course";
+import { Description } from "./description/Description";
 
 export const Stages = () => {
   const { getStage } = stageSlice.selectors;
@@ -10,9 +12,9 @@ export const Stages = () => {
   return (
     <>
       { stage === stageList && <Courses /> }
-      { stage === stageCourse && <h1>Course</h1> }
+      { stage === stageCourse && <Course /> }
       { stage === stageTask && <Solving /> }
-      { stage === stageDescription && <h1>Description</h1> }
+      { stage === stageDescription && <Description /> }
     </>
   );
 }

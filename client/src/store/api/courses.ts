@@ -7,10 +7,14 @@ export const coursesApi = createApi({
   endpoints: (build) => ({
     getList: build.query<CourseData[], void>({
       query: () => "/courses"
-    })
+    }),
+    getCourse: build.query<CourseData, string>({
+      query: (id) => "/courses/" + id,
+    }),
   })
 });
 
 export const {
   useGetListQuery,
+  useGetCourseQuery,
 } = coursesApi;
