@@ -2,7 +2,7 @@ interface Item {
   id: string;
   uuid: string;
   title: string;
-  html: string;
+  markdown: string;
 }
 
 export interface TaskData extends Item {

@@ -23,7 +23,7 @@ export default (fastify) => {
     if (path) {
       const courseData = course(directory(path));
       if (courseData) {
-        const { html, title } = courseData;
+        const { text, html, title } = courseData;
         const { tasks } = courseData;
         const tasksData = tasks.map((task) => {
           return {
@@ -33,7 +33,7 @@ export default (fastify) => {
           }
         });
 
-        res.send({ title, html, tasks: tasksData });
+        res.send({ title, html, markdown: text, tasks: tasksData });
       } else {
         res.status(404);
       }
@@ -47,7 +47,7 @@ export default (fastify) => {
     const taskData = task(directory(path));
     const { title, template, description, cases, resultVars, courseUUID } = taskData;
 
-    return { title, template, html: description.html, cases, resultVars,
+    return { title, template, markdown: description.text, cases, resultVars,
       courseRoute: "/course/" + courseUUID
     };
   });
