@@ -1,11 +1,15 @@
 .description {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 800px;
   background-color: #eceff4;
   padding-left: 12px;
 
   & pre {
     margin-right: 12px;
+  }
+
+  & li, & p {
+    line-height: 1.5em;
   }
 }

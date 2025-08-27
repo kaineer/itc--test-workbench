@@ -1,6 +1,6 @@
 import Markdown from "react-markdown"
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
-import {nord} from 'react-syntax-highlighter/dist/esm/styles/prism'
+import {ghcolors} from 'react-syntax-highlighter/dist/esm/styles/prism'
 
 interface Props {
   markdown: string;
@@ -20,7 +20,7 @@ export const MarkdownWithCode = ({ markdown }: Props) => {
               PreTag="div"
               children={String(children).replace(/\n$/, '')}
               language={match[1]}
-              style={nord}
+              style={ghcolors}
             />
           ) : (
               <code {...rest} className={className}>

@@ -1,4 +1,6 @@
 .container {
   display: flex;
   height: 100vh;
+
+  background-color: #eceff4;
 }
