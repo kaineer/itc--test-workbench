@@ -4,6 +4,9 @@ import classes from "./TextArea.module.css"
 import { useEffect, useRef } from "react";
 import { unittestSlice } from "../../store/slices/unittest";
 
+import { javascript } from "@codemirror/lang-javascript";
+import CodeMirror from "@uiw/react-codemirror";
+
 export const TextArea = () => {
   const dispatch = useDispatch();
   const { getCode } = codeSlice.selectors;
@@ -30,11 +33,17 @@ export const TextArea = () => {
   }, [code]);
 
   return (
-    <textarea
+    <CodeMirror
       ref={ref}
-      onInput={handleChange}
-      className={classes.textarea}
-      defaultValue={code}
+      className={ classes.textarea }
+      value={ code }
+      extensions={[ javascript() ]}
+      basicSetup={{
+        foldGutter: false,
+        dropCursor: false,
+        allowMultipleSelections: false,
+        indentOnInput: false,
+      }}
     />
   )
 }

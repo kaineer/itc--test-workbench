@@ -11,9 +11,9 @@ interface Task {
   waiting: boolean;
 }
 
-const renderTask = (task: Task) => {
+const renderTask = (task: Task, idx: number) => {
   return <TaskItem
-    key={task.id}
+    key={idx}
     { ...task }
   />
 }
@@ -21,7 +21,6 @@ const renderTask = (task: Task) => {
 export const TaskList = () => {
   const {
     getUnittestCases,
-    getUnittestId,
   } = unittestSlice.selectors;
   const cases = useSelector(getUnittestCases);
   const [ list, setList ] = useState<Task[]>([]);
