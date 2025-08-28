@@ -4,12 +4,27 @@
   width: 800px;
   background-color: #eceff4;
   padding-left: 12px;
+  min-height: 100vh;
 
   & pre {
     margin-right: 12px;
   }
 
+  & pre > div {
+    border-radius: 8px;
+  }
+
   & li, & p {
     line-height: 1.5em;
+  }
+
+  & .content {
+    flex-grow: 1;
+  }
+
+  & .buttons {
+    flex-grow: 0;
+    display: block;
+    margin-bottom: 8px;
   }
 }

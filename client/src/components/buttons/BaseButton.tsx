@@ -17,8 +17,8 @@ export const BaseButton = ({ className, text, readonly = false, onClick = noop }
   }
 
   return (
-    <div className={buttonClassName} onClick={handleClick}>
+    <button className={buttonClassName} onClick={handleClick}>
       { text }
-    </div>
+    </button>
   )
 };

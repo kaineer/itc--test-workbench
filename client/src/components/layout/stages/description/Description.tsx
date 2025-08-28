@@ -2,6 +2,7 @@ import { useParams } from 'react-router';
 import classes from './Description.module.css';
 import { useGetTaskQuery } from '../../../../store/api/task';
 import { MarkdownWithCode } from '../../../render/MarkdownWithCode';
+import { StartButton } from '../../../buttons/StartButton';
 
 export const Description = () => {
   const { taskId } = useParams();
@@ -10,7 +11,12 @@ export const Description = () => {
 
   return (
     <div className={classes.description}>
-      <MarkdownWithCode markdown={ markdown } />
+      <div className={classes.content}>
+        <MarkdownWithCode markdown={ markdown } />
+      </div>
+      <div className={classes.buttons}>
+        <StartButton />
+      </div>
     </div>
   );
 }
