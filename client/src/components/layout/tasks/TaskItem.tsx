@@ -22,8 +22,9 @@ const levelClass = (level: number): string => {
 export const TaskItem = ({ level = 1, title, failed = false, waiting = true, skipped = false }: Props) => {
   const className = classes.item;
   const labelClassName = clsx(classes.label, {
-    [classes.failed]: failed && !skipped,
-    [classes.complete]: !failed && !skipped,
+    [classes.waiting]: waiting,
+    [classes.failed]: !waiting && (failed && !skipped),
+    [classes.complete]: !waiting && !failed && !skipped,
     [classes.skipped]: skipped,
   });
 
