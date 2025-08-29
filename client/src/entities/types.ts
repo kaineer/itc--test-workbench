@@ -5,6 +5,7 @@ interface Item {
   uuid: string;
   title: string;
   markdown: string;
+  route: string;
 }
 
 export interface TaskData extends Item {

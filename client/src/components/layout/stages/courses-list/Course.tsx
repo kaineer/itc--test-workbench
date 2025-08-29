@@ -9,9 +9,9 @@ interface Props {
 export const Course = ({ course }: Props) => {
   return (
     <div className={classes.course}>
-      <a href={ course.route } className={classes.link}>
+      <Link to={course.route} className={classes.link}>
         <b>{ course.id }</b>&nbsp;{ course.title }
-      </a>
+      </Link>
     </div>
   );
 }

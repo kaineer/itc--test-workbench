@@ -1,5 +1,6 @@
 import classes from './Task.module.css';
 import type { TaskData } from "../../../../entities/types";
+import { Link } from 'react-router';
 
 interface Props {
   task: TaskData;
@@ -8,9 +9,9 @@ interface Props {
 export const Task = ({ task }: Props) => {
   return (
     <div className={classes.task}>
-      <a href={ task.route } className={classes.link}>
+      <Link to={ task.route } className={classes.link}>
         <b>{ task.id }</b>&nbsp;{ task.title }
-      </a>
+      </Link>
     </div>
   );
 }
