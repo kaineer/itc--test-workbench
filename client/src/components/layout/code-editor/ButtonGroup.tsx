@@ -1,8 +1,8 @@
 import classes from "./ButtonGroup.module.css";
 import { useSelector } from 'react-redux'
-import { codeSlice } from "../../store/slices/code";
-import { SendButton } from "../buttons/SendButton";
-import { ResetButton } from "../buttons/ResetButton";
+import { SendButton } from "./SendButton";
+import { ResetButton } from "./ResetButton";
+import { codeSlice } from "@slices/code";
 
 export const ButtonGroup = () => {
   const { getCodeIsValid, getCode } = codeSlice.selectors;

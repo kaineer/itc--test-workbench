@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
-import { stageCourse, stageDescription, stageList, stageSlice, stageTask } from "../../../../store/slices/stage";
 import { CourseButton } from "./CourseButton";
 import { CourseListButton } from "./CourseListButton";
 import { DescriptionButton } from "./DescriptionButton";
 import { SolvingButton } from "./SolvingButton";
+import { stageCourse, stageDescription, stageList, stageSlice, stageTask } from "@slices/stage";
 
 export const Buttons = () => {
   const { getCourse, getTask } = stageSlice.selectors;

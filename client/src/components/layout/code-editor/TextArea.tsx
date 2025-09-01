@@ -1,11 +1,11 @@
 import { useDispatch, useSelector } from "react-redux";
-import { codeSlice } from "../../store/slices/code";
 import classes from "./TextArea.module.css"
 import { useEffect, useRef } from "react";
-import { unittestSlice } from "../../store/slices/unittest";
 
 import { javascript } from "@codemirror/lang-javascript";
 import CodeMirror from "@uiw/react-codemirror";
+import { codeSlice } from "@slices/code";
+import { unittestSlice } from "@slices/unittest";
 
 export const TextArea = () => {
   const dispatch = useDispatch();
@@ -39,6 +39,7 @@ export const TextArea = () => {
       value={ code }
       extensions={[ javascript() ]}
       basicSetup={{
+        lineNumbers: false,
         foldGutter: false,
         dropCursor: false,
         allowMultipleSelections: false,

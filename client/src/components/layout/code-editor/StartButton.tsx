@@ -1,9 +1,9 @@
 import classes from "./Buttons.module.css"
 import { type ButtonProps } from "./ButtonProps"
 import { BaseButton } from "./BaseButton";
-import { stageSlice, stageTask } from "../../store/slices/stage";
 import { useDispatch } from "react-redux";
 import clsx from "clsx";
+import { stageSlice, stageTask } from "@slices/stage";
 
 export const StartButton = ({ text = "Приступить к решению" }: ButtonProps) => {
   const dispatch = useDispatch();

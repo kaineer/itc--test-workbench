@@ -2,7 +2,7 @@ import { useParams } from 'react-router';
 import classes from './Description.module.css';
 import { useGetTaskQuery } from '../../../../store/api/task';
 import { MarkdownWithCode } from '../../../render/MarkdownWithCode';
-import { StartButton } from '../../../buttons/StartButton';
+import { StartButton } from '../../code-editor/StartButton';
 
 export const Description = () => {
   const { taskId } = useParams();

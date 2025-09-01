@@ -2,8 +2,8 @@ import { type ButtonProps } from "./ButtonProps"
 import classes from './Buttons.module.css'
 import { BaseButton } from "./BaseButton";
 import { useSelector } from "react-redux";
-import { codeSlice } from "../../store/slices/code";
 import clsx from "clsx";
+import { codeSlice } from "@slices/code";
 
 export const SendButton = ({ text = "Отправить", onClick = () => null }: ButtonProps) => {
   const { getCodeIsValid } = codeSlice.selectors;
