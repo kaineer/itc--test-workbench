@@ -27,6 +27,7 @@
     "paths": {
       "@api/*": ["src/store/api/*"],
       "@slices/*": ["src/store/slices/*"],
+      "@entities/*": ["src/entities/*"],
       "@utils/*": ["src/utils/*"],
       "@/*": ["src/*"]
     }
