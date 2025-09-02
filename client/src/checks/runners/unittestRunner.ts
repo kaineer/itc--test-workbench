@@ -1,7 +1,7 @@
+import { lines } from "../../utils/text";
 import type { TestCase } from "../unittest/testcase";
 import type { Unittest } from "../unittest/unittest";
 import { runner } from "./runner";
-import { lines } from "../../utils/fixtures";
 
 const injectExtraction = (vars: string[], userCode: string) => {
   const resultVar = "__result";
@@ -31,8 +31,8 @@ const injectExtraction = (vars: string[], userCode: string) => {
 
 const buildCode = (tc: TestCase, userCode: string) => {
   return lines(
-    injectExtraction(tc.results, userCode),
-    tc.content,
+    injectExtraction(tc.resultVars, userCode),
+    tc.code,
   );
 }
 

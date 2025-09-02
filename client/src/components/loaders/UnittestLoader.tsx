@@ -10,7 +10,7 @@ export const UnittestLoader = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(setUnittest(unittest));
+    // dispatch(setUnittest(unittest));
   }, []);
 
   return null;

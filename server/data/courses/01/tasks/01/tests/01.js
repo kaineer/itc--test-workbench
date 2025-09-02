@@ -1,3 +1,4 @@
-// TASK: test the test
-// DEPENDS: 02
+// TASK: hello должна быть функцией
 const { hello } = result;
+
+assertIsFunction(hello, "hello должна быть функцией");

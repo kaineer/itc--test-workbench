@@ -15,11 +15,37 @@ export interface CourseData extends Item {
   tasks: TaskData[];
 }
 
+export interface TestcaseData {
+  title: string;
+  depends: string[];
+  code: string;
+  resultVars: string[];
+  id: string;
+}
+
+export interface UnittestData {
+  id: string;
+  title: string;
+  resultVars: string[];
+  cases: TestcaseData[];
+  template: string;
+}
+
 const itemSchema = z.object({
   id: z.string(),
   uuid: z.string(),
   title: z.string(),
   markdown: z.string(),
+});
+
+const resultVarsSchema = z.array(z.string());
+
+const testcaseSchema = z.object({
+  title: z.string(),
+  depends: z.array(z.string()),
+  code: z.string(),
+  resultVars: resultVarsSchema,
+  id: z.string(),
 });
 
 export const taskSchema = itemSchema;
@@ -31,7 +57,8 @@ export const courseSchema = itemSchema.extend({
 export const taskSolutionSchema = z.object({
   courseRoute: z.string(),
   markdown: z.string(),
-  resultVars: z.array(z.string()),
+  resultVars: resultVarsSchema,
   template: z.string(),
   title: z.string(),
+  cases: z.array(testcaseSchema),
 });

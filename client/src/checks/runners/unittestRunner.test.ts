@@ -1,8 +1,9 @@
 import { it, expect } from "vitest"
 import { unittest } from "../unittest/unittest"
 import { directory } from "../unittest/directory"
-import { getFixturePath, lines } from "../../utils/fixtures"
+import { getFixturePath } from "../../utils/fixtures"
 import { runUnittest } from "./unittestRunner";
+import { lines } from "../../utils/text";
 
 const fixturePath = getFixturePath(import.meta.url);
 const dir = directory(fixturePath);

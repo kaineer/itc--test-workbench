@@ -10,14 +10,20 @@
   "cases": [
     {
       "title": "hello должна быть функцией",
-      "results": ["hello"],
+      "resultVars": [
+        "hello"
+      ],
       "content": "// TASK: hello должна быть функцией\nconst { hello } = result;\n\nassertIsFunction(hello, \"Должна быть функцией\");\n"
     },
     {
-      "title": "hello должна возвращать \"world\"",
-      "results": ["hello"],
+      "title": "Должна возвращать \"world\"",
+      "resultVars": [
+        "hello"
+      ],
       "content": "// TASK: Должна возвращать \"world\"\nconst { hello } = result;\n\nassertEqual(hello(), \"world\");\n"
     }
   ],
-  "resultVars": ["hello"]
+  "resultVars": [
+    "hello"
+  ]
 }

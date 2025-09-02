@@ -21,8 +21,10 @@ const renderTask = (task: Task, idx: number) => {
 export const TaskList = () => {
   const {
     getUnittestCases,
+    getUnittestResults,
   } = unittestSlice.selectors;
   const cases = useSelector(getUnittestCases);
+  const results = useSelector(getUnittestResults);
   const [ list, setList ] = useState<Task[]>([]);
 
   useEffect(() => {
@@ -30,16 +32,16 @@ export const TaskList = () => {
     //   goalSlice и вместе с запуском раннера
     //   сохранять в него результаты выполнения
     setList(
-      (cases || []).map((cs) => {
+      (cases || []).map((cs, i) => {
         return {
           title: cs.title,
-          failed: false,
+          failed: !!results[i].failed,
           skipped: false,
-          waiting: true,
+          waiting: (typeof results[i].failed === "undefined"),
         }
       })
     );
-  }, [cases]);
+  }, [cases, results]);
 
   return (
     <ul className={classes.list}>

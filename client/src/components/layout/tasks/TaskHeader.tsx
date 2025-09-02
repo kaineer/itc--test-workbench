@@ -1,11 +1,12 @@
+import { useSelector } from "react-redux";
+import { unittestSlice } from "../../../store/slices/unittest";
 import classes from "./TaskHeader.module.css";
 
-interface Props {
-  text: string;
-}
+export const TaskHeader = () => {
+  const { getUnittestTitle } = unittestSlice.selectors;
+  const testTitle = useSelector(getUnittestTitle);
 
-export const TaskHeader = ({ text }: Props) => {
   return (
-    <h2 className={ classes.header }>{ text }</h2>
+    <h2 className={ classes.header }>{ testTitle }</h2>
   );
 }

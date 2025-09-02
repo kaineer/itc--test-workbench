@@ -1,6 +1,7 @@
+import classes from "./TextArea.module.css"
+
 import { useDispatch, useSelector } from "react-redux";
 import { codeSlice } from "../../store/slices/code";
-import classes from "./TextArea.module.css"
 import { useEffect, useRef } from "react";
 import { unittestSlice } from "../../store/slices/unittest";
 
@@ -15,13 +16,11 @@ export const TextArea = () => {
     unittestSlice.selectors;
   const code = useSelector(getCode);
   const ref = useRef(null);
-  const id = useSelector(getUnittestId);
   const template = useSelector(getUnittestTemplate);
+  const id = useSelector(getUnittestId);
 
-  const handleChange = () => {
-    if (ref.current) {
-      dispatch(setCode(ref.current.value));
-    }
+  const onCodeChange = (value: string) => {
+    dispatch(setCode(value));
   }
 
   useEffect(() => {
@@ -38,7 +37,9 @@ export const TextArea = () => {
       className={ classes.textarea }
       value={ code }
       extensions={[ javascript() ]}
+      onChange={ onCodeChange }
       basicSetup={{
+        lineNumbers: false,
         foldGutter: false,
         dropCursor: false,
         allowMultipleSelections: false,

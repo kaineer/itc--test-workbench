@@ -1,28 +1,33 @@
-import { createContext, Script } from "vm"
+import { Script } from "vm"
 
 // asserts exports all usable asserts
 import { asserts } from "../asserts/assert";
 
 interface RunnerResult {
   failed: boolean;
-  message: string;
+  message?: string;
+}
+
+const getMessage = (error: unknown): string => {
+  if (error && typeof error === 'object' && 'message' in error) {
+    return String(error.message);
+  }
+  return String(error);
 }
 
 export const runner = (
   code: string
 ): RunnerResult => {
   const script = new Script(code);
-  const context = { ...asserts };
-
-  createContext(context, { name: "runner" });
 
   try {
-    script.runInContext(context);
+    script.runInNewContext({...asserts});
   } catch (err) {
     return {
       failed: true,
-      message: err.message ? err.message : String(err),
+      message: getMessage(err),
     }
   }
+
   return { failed: false };
 }
