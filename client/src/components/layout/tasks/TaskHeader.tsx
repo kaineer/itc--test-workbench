@@ -1,6 +1,6 @@
-import { useSelector } from "react-redux";
-import { unittestSlice } from "../../../store/slices/unittest";
 import classes from "./TaskHeader.module.css";
+import { useSelector } from "react-redux";
+import { unittestSlice } from "@slices/unittest";
 
 export const TaskHeader = () => {
   const { getUnittestTitle } = unittestSlice.selectors;

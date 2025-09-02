@@ -1,9 +1,10 @@
 import { useSelector } from "react-redux";
-import { Solving } from "./solving/Solving";
+import { stageCourse, stageDescription, stageList, stageSlice, stageTask } from "@slices/stage";
+
 import { Courses } from "./courses-list/Courses";
 import { Course } from "./course/Course";
+import { Solving } from "./solving/Solving";
 import { Description } from "./description/Description";
-import { stageCourse, stageDescription, stageList, stageSlice, stageTask } from "@slices/stage";
 
 export const Stages = () => {
   const { getStage } = stageSlice.selectors;

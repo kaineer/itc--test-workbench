@@ -30,10 +30,6 @@ export const TextArea = () => {
     dispatch(setCode(template));
   }, [id]);
 
-  useEffect(() => {
-    ref.current && (ref.current.value = code);
-  }, [code]);
-
   return (
     <CodeMirror
       ref={ref}

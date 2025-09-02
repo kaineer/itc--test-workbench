@@ -26,6 +26,8 @@
       "@api/*": ["src/store/api/*"],
       "@slices/*": ["src/store/slices/*"],
       "@entities/*": ["src/entities/*"],
+      "@layout/*": ["src/components/layout/*"],
+      "@components/*": ["src/components/*"],
       "@utils/*": ["src/utils/*"],
       "@/*": ["src/*"]
     }

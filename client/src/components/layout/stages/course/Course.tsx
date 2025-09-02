@@ -1,8 +1,9 @@
 import classes from "./Course.module.css";
+
 import { useSelector } from "react-redux";
-import { Task } from "./Task";
 import { stageSlice } from "@slices/stage";
 import { useGetCourseQuery } from "@api/courses";
+import { Task } from "./Task";
 
 export const Course = () => {
   const { getCourse } = stageSlice.selectors;

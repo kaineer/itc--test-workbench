@@ -29,6 +29,8 @@
       "@slices/*": ["src/store/slices/*"],
       "@entities/*": ["src/entities/*"],
       "@utils/*": ["src/utils/*"],
+      "@layout/*": ["src/components/layout/*"],
+      "@components/*": ["src/components/*"],
       "@/*": ["src/*"]
     }
   },

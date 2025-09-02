@@ -1,12 +1,14 @@
-import { useParams } from 'react-router';
 import classes from './Description.module.css';
-import { useGetTaskQuery } from '../../../../store/api/task';
-import { MarkdownWithCode } from '../../../render/MarkdownWithCode';
+
+import { useParams } from 'react-router';
 
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { unittestSlice } from '../../../../store/slices/unittest';
-import { StartButton } from '../../code-editor/StartButton';
+
+import { useGetTaskQuery } from '@api/task';
+import { unittestSlice } from '@slices/unittest';
+import { StartButton } from '@layout/code-editor/StartButton';
+import { MarkdownWithCode } from '@components/render/MarkdownWithCode';
 
 export const Description = () => {
   const { taskId = '' } = useParams();

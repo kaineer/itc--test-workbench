@@ -1,6 +1,6 @@
+import { useGetListQuery } from '@api/courses';
 import classes from './Courses.module.css'
-import { useGetListQuery } from "../../../../store/api/courses"
-import { Course } from "./Course"
+import { Course } from './Course'
 
 export const Courses = () => {
   const { data, isLoading } = useGetListQuery();
