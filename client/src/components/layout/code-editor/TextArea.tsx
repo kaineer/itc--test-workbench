@@ -1,12 +1,13 @@
 import classes from "./TextArea.module.css"
 
 import { useDispatch, useSelector } from "react-redux";
-import { codeSlice } from "../../store/slices/code";
 import { useEffect, useRef } from "react";
-import { unittestSlice } from "../../store/slices/unittest";
 
 import { javascript } from "@codemirror/lang-javascript";
 import CodeMirror from "@uiw/react-codemirror";
+
+import { codeSlice } from "@slices/code";
+import { unittestSlice } from "@slices/unittest";
 
 export const TextArea = () => {
   const dispatch = useDispatch();
@@ -20,10 +21,12 @@ export const TextArea = () => {
   const id = useSelector(getUnittestId);
 
   const onCodeChange = (value: string) => {
+    console.log("Change code: " + value);
     dispatch(setCode(value));
   }
 
   useEffect(() => {
+    console.log("Change id");
     dispatch(setCode(template));
   }, [id]);
 

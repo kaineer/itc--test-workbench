@@ -1,5 +1,5 @@
 import classes from './Course.module.css'
-import type { CourseData } from "../../../../entities/types";
+import type { CourseData } from "@entities/types";
 import { Link } from 'react-router';
 
 interface Props {

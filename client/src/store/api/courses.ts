@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
-import type { CourseData } from "../../entities/types";
+import type { CourseData } from "@entities/types";
 
 export const coursesApi = createApi({
   reducerPath: 'courses/api',

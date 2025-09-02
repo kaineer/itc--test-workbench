@@ -1,8 +1,8 @@
 import { useSelector } from 'react-redux';
-import { unittestSlice } from '../../../store/slices/unittest';
 import { TaskItem } from './TaskItem';
 import classes from './TaskList.module.css'
 import { useEffect, useState } from 'react';
+import { unittestSlice } from '@slices/unittest';
 
 interface Task {
   title: string;

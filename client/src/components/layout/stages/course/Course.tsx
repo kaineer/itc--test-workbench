@@ -1,13 +1,13 @@
 import classes from "./Course.module.css";
 import { useSelector } from "react-redux";
-import { stageSlice } from "../../../../store/slices/stage"
-import { useGetCourseQuery } from "../../../../store/api/courses";
 import { Task } from "./Task";
+import { stageSlice } from "@slices/stage";
+import { useGetCourseQuery } from "@api/courses";
 
 export const Course = () => {
   const { getCourse } = stageSlice.selectors;
   const courseId = useSelector(getCourse);
-  const { data: course, isLoading } = useGetCourseQuery(courseId);
+  const { data: course } = useGetCourseQuery(courseId);
   const {
     tasks = [],
     title = "Course [noname]"

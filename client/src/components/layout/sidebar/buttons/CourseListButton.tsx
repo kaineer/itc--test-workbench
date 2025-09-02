@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { Button } from "./Button";
 import { CourseListIcon } from "./Icons";
-import { stageList, stageSlice } from "../../../../store/slices/stage";
+import { stageList, stageSlice } from "@slices/stage";
 
 interface Props {
   onClick: () => void;

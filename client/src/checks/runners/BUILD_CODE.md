@@ -1,4 +1,5 @@
 ## template.js
+import { unittestSlice } from "../../store/slices/unittest";
 ```js
 function hello() {
 %usercode

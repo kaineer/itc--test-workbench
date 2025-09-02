@@ -1,7 +1,7 @@
 import classes from "./Buttons.module.css"
 import { type ButtonProps } from "./ButtonProps"
 import clsx from "clsx";
-import { noop } from "../../utils/functions";
+import { noop } from "../../../utils/functions";
 
 interface BaseButtonProps extends ButtonProps {
   className: string;
