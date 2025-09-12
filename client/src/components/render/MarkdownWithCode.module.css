@@ -1,0 +1,22 @@
+.markdown {
+  & code {
+    background-color: #f6f7f9;
+    color: #bf616a;
+    padding: 0 4px;
+    outline: solid 1px #d8dee9;
+    border-radius: 4px;
+  }
+  & pre code {
+    background-color: inherit;
+    color: inherit;
+    padding: inherit;
+    outline: inherit;
+    border-radius: inherit;
+  }
+}
+
+.inline {
+  p {
+    margin: 0;
+  }
+}

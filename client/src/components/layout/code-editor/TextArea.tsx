@@ -11,24 +11,26 @@ import { unittestSlice } from "@slices/unittest";
 
 export const TextArea = () => {
   const dispatch = useDispatch();
-  const { getCode } = codeSlice.selectors;
-  const { setCode } = codeSlice.actions;
+  const { getCode, getUnittestId: getCodeUnittestId } = codeSlice.selectors;
+  const { setCode, setUnittestId } = codeSlice.actions;
   const { getUnittestTemplate, getUnittestId } =
     unittestSlice.selectors;
   const code = useSelector(getCode);
   const ref = useRef(null);
   const template = useSelector(getUnittestTemplate);
   const id = useSelector(getUnittestId);
+  const codeId = useSelector(getCodeUnittestId);
 
   const onCodeChange = (value: string) => {
-    console.log("Change code: " + value);
     dispatch(setCode(value));
+    dispatch(setUnittestId(id));
   }
 
   useEffect(() => {
-    console.log("Change id");
-    dispatch(setCode(template));
-  }, [id]);
+    if (codeId !== id) {
+      dispatch(setCode(template));
+    }
+  }, [id, codeId]);
 
   return (
     <CodeMirror

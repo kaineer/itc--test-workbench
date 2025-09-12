@@ -4,6 +4,7 @@ import { CourseListButton } from "./CourseListButton";
 import { DescriptionButton } from "./DescriptionButton";
 import { SolvingButton } from "./SolvingButton";
 import { stageCourse, stageDescription, stageList, stageSlice, stageTask } from "@slices/stage";
+import { CopyResultsButton } from "./CopyResultsButton";
 
 export const Buttons = () => {
   const { getCourse, getTask } = stageSlice.selectors;
@@ -30,6 +31,7 @@ export const Buttons = () => {
       </>) }
       { course !== "" && <CourseButton onClick={ chooseCourse } /> }
       <CourseListButton onClick={ chooseList } />
+      <CopyResultsButton />
     </>
   );
 }

@@ -33,3 +33,19 @@ export const CourseListIcon = () => (
     <rect x="6" y="16" width="20" height="24" rx="2" fill="#F59E0B" stroke="#F59E0B" stroke-width="2"/>
   </svg>
 );
+
+export const CopyResultsIcon = () => (
+  <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+    xmlns="http://www.w3.org/2000/svg"> <rect x="10" y="10" width="16"
+      height="20" rx="2" stroke="#3498db" stroke-width="2"/>
+    <rect x="16" y="16"
+      width="16" height="20" rx="2" fill="#3498db" fill-opacity="0.2" stroke="#3498db"
+      stroke-width="2"/>
+    <path d="M20 20H26" stroke="#3498db" stroke-width="2"
+      stroke-linecap="round"/>
+    <path d="M20 24H26" stroke="#3498db"
+      stroke-width="2" stroke-linecap="round"/>
+    <path d="M20 28H26"
+      stroke="#3498db" stroke-width="2" stroke-linecap="round"/>
+  </svg>
+);

@@ -37,6 +37,21 @@ export const unittestSlice = createSlice({
       const userCode = action.payload;
       const goalResults = runUnittest(state.unittest, userCode);
 
+      const getPrevCode = () => {
+        try {
+          return JSON.parse(localStorage.itcJavascript || "{}");
+        } catch (err) {
+          return {};
+        }
+      }
+
+      if (goalResults.every(({ok}) => ok)) {
+        const prevCode = getPrevCode();
+        const { id } = state.unittest;
+        prevCode[id] = userCode;
+        localStorage.itcJavascript = JSON.stringify(prevCode);
+      }
+
       state.results = goalResults;
     },
   },

@@ -1,4 +1,4 @@
-// TASK: hello должна быть функцией
-const { hello } = result;
+// title: "`year` должно быть равно `2025`"
+const { year } = result;
 
-assertIsFunction(hello, "hello должна быть функцией");
+assertEqual(year, 2025, "Год должен быть указан верно");

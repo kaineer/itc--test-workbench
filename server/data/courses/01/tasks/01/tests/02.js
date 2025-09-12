@@ -1,4 +1,4 @@
-// title: hello должна возвращать "world"
-const { hello } = result;
+// title: "`month` должно быть равно `5`"
+const { month } = result;
 
-assertEqual(hello(), "world", "hello должна возвращать 'world'");
+assertEqual(month, 5, "Месяц должен быть указан");
