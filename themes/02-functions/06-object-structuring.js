@@ -3,7 +3,7 @@ const { log } = console;
 // Присваивание
 const source = { green: 'зеленый', yellow: 'желтый', red: 'красный' };
 
-// const { green, yellow, red } = source; log(green);
+// const { yellow, red, green } = source; log(green);
 // const { green } = source;
 
 // Параметры фунции
@@ -12,12 +12,16 @@ const source = { green: 'зеленый', yellow: 'желтый', red: 'крас
 // const fn = ({ green }) => console.log(green);
 // const fn = ({ blue = 'синий' }) => console.log(blue);
 
-// fn(source);
+// fn({ ...source, blue: 'голубой' });
 //
 // Копирование, добавление элементов, объединение
 //
-// const appendix = { white: 'белый', blue: 'синий' }
+const appendix = { white: 'белый', blue: 'синий', green: 'изумрудный' }
 //
-// const sourceCopy = { ...source }
-// const sourcePlus = { ...source, blue: 'синий' }; log(sourcePlus);
-// const whole = { ...source, ...appendix }; log(whole);
+const sourceCopy = { ...source }
+// const sourcePlus = { ...source, green: 'изумрудный', blue: 'синий' }; log(sourcePlus);
+
+// delete sourcePlus.red;
+//
+// log(sourcePlus);
+const whole = { ...source, ...appendix }; log(whole);

@@ -12,9 +12,9 @@ const source = ['green', 'yellow', 'red'];
 
 // Параметры функции
 // const fn = (list) => { console.log(list[0]); }
-// const fn = ([first]) => { console.log(first); }
+// const fn = ([, second]) => { console.log(second); }
 //
-// const fn([1, 2, 3]);
+// fn([1, 2, 3]);
 
 // Произвольное количество аргументов функции
 // 1. arguments
@@ -31,8 +31,18 @@ const source = ['green', 'yellow', 'red'];
 
 // Копирование, добавление элементов к массиву, склеивание
 //
-// const left = [1, 2, 3], right = [4, 5, 6];
-//
-// const leftCopy = [...left];
+const left = [1, 2, 3], right = [4, 5, 6];
+
+const leftCopy = [...left];
 // const leftPlus = [...left, 4]; log(leftPlus);
 // const whole = [...left, ...right]; log(whole);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//

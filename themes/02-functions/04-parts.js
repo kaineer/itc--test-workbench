@@ -4,9 +4,20 @@
 // 4. return value
 // 5. default values
 
-function min (left, right = 10) {
-  if (left < right) {
-    return left;
+// function min (left = 1, right) {
+//   if (left < right) {
+//     return left;
+//   }
+//   return right;
+// }
+
+const obj = ({
+  min(left, right = 10) {
+    if (left < right) {
+      return left;
+    }
+    return right;
   }
-  return right;
-}
+})
+
+console.log(obj.min(40));
