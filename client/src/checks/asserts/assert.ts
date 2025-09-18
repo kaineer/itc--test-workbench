@@ -1,7 +1,10 @@
 export const assert = (value: unknown, message?: string = "") => {
   const condition = Boolean(value);
 
-  if (!condition) throw new Error(message);
+  if (!condition) {
+    console.log(message);
+    throw new Error(message);
+  }
 }
 
 export const defaultEqualityMessage = "First argument should equal second";
@@ -25,7 +28,9 @@ const checkDeepEqual = (left: unknown, right: unknown): boolean => {
     return left === right;
   }
 
-  if (left.__proto__ !== {}.__proto__) {
+  if (left === null) return right === null;
+
+  if (left.__proto__?.__proto__ !== null && !Array.isArray(left)) {
     return left === right;
   }
 

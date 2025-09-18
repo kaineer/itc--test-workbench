@@ -1,0 +1,13 @@
+#!/usr/bin/env node
+
+const { join } = require('path');
+
+const testFile = join(process.env.PWD, 'test.json');
+const data = require(testFile);
+
+Object.keys(data).forEach((key) => {
+  console.log("### " + key);
+  console.log("```js");
+  console.log(data[key]);
+  console.log("```");
+});

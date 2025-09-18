@@ -3,13 +3,13 @@ import type { CourseData } from "@entities/types";
 
 export const coursesApi = createApi({
   reducerPath: 'courses/api',
-  baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:6401' }),
+  baseQuery: fetchBaseQuery({ baseUrl: '/' }),
   endpoints: (build) => ({
     getList: build.query<CourseData[], void>({
-      query: () => "/courses"
+      query: () => "/courses.json"
     }),
     getCourse: build.query<CourseData, string>({
-      query: (id) => "/courses/" + id,
+      query: (id) => "/courses/" + id + ".json",
     }),
   })
 });

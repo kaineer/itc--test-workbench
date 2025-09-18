@@ -17,6 +17,15 @@ export const courses = (dir) => {
     cc.tasks.forEach((ct) => {
       tasksHash[ct.uuid] = ct;
     });
+
+    const sortedTasks = cc.tasks.toSorted((t) => t.id);
+    sortedTasks.forEach((st, i) => {
+      if (i < sortedTasks.length - 1) {
+        tasksHash[st.uuid].nextUUID = (
+          sortedTasks[i + 1].uuid
+        );
+      }
+    });
   });
 
   return {

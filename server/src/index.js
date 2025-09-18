@@ -18,7 +18,7 @@ const useRoutes = async (name) => {
 
 fastify.get("/", (req, res) => {
   res.send({ routes: [
-    { route: "/courses" }
+    { route: "/courses.json" }
   ]});
 });
 

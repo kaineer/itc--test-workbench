@@ -56,6 +56,7 @@ export const courseSchema = itemSchema.extend({
 
 export const taskSolutionSchema = z.object({
   courseRoute: z.string(),
+  nextRoute: z.string().optional(),
   markdown: z.string(),
   resultVars: resultVarsSchema,
   template: z.string(),

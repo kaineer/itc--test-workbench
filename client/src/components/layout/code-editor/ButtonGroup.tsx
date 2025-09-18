@@ -5,6 +5,7 @@ import { ResetButton } from "./ResetButton";
 
 import { codeSlice } from "@slices/code";
 import { unittestSlice } from "@slices/unittest";
+import { NextButton } from "./NextButton";
 
 export const ButtonGroup = () => {
   const { getCodeIsValid, getCode } = codeSlice.selectors;
@@ -24,6 +25,7 @@ export const ButtonGroup = () => {
         onClick={ onSend }
       />
       <ResetButton />
+      <NextButton />
     </div>
   )
 }

@@ -11,7 +11,8 @@
   display: block;
   background-color: #e5e9f0;
   margin: 0 12px;
+
   outline: solid 1px #4c566a;
-  -webkit-box-shadow: 5px 5px 0 0 #4c566a;
-  box-shadow: 5px 5px 0 0 #4c566a;
+  -webkit-box-shadow: 5px 5px 0 0 #d8dee9;
+  box-shadow: 5px 5px 0 0 #d8dee9;
 }

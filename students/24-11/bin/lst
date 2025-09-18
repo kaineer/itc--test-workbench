@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+for id in $(ls -1 | grep -v bin); do
+  NAME=$(cat $id/README.yaml | yq . | jq -r ".name")
+  echo "## $NAME"
+  echo ""
+  for check in $(ls $id/*/check.md); do
+    echo "> ${check}"
+    echo ""
+    bat $check -lmd -pP
+  done
+done

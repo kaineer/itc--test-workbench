@@ -1,17 +1,19 @@
+import { useClipboard } from "@utils/clipboard";
 import { Button } from "./Button";
 import { CopyResultsIcon } from "./Icons";
 
-export const CopyResultsButton =({}: Props) => {
+export const CopyResultsButton = () => {
   const title = "Копируем результаты";
+  const { copyToClipboard } = useClipboard();
   const handleClick = () => {
     const resultStr = localStorage.itcJavascript;
     if (typeof resultStr === 'string') {
-      navigator.clipboard.writeText(resultStr);
+      copyToClipboard(resultStr);
     }
   }
 
   return (
-    <Button onClick={handleClick}>
+    <Button title={title} onClick={handleClick}>
       <CopyResultsIcon />
     </Button>
   )

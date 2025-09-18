@@ -18,11 +18,13 @@ interface UnittestResult {
 interface SliceContent {
   unittest: UnittestData;
   results: UnittestResult[],
+  solved: boolean;
 }
 
 const initialState: SliceContent = {
   unittest: blankUnittest,
   results: [],
+  solved: false,
 }
 
 export const unittestSlice = createSlice({
@@ -32,6 +34,7 @@ export const unittestSlice = createSlice({
     setUnittest: (state: SliceContent, action: PayloadAction<UnittestData>) => {
       state.unittest = action.payload;
       state.results = state.unittest.cases.map((_) => ({ waiting: true }));
+      state.solved = false;
     },
     runUnittest: (state: SliceContent, action: PayloadAction<string>) => {
       const userCode = action.payload;
@@ -45,7 +48,9 @@ export const unittestSlice = createSlice({
         }
       }
 
-      if (goalResults.every(({ok}) => ok)) {
+      const solved = goalResults.every(({ ok }) => ok);
+
+      if (solved) {
         const prevCode = getPrevCode();
         const { id } = state.unittest;
         prevCode[id] = userCode;
@@ -53,6 +58,7 @@ export const unittestSlice = createSlice({
       }
 
       state.results = goalResults;
+      state.solved = solved;
     },
   },
   selectors: {
@@ -62,5 +68,6 @@ export const unittestSlice = createSlice({
     getUnittestTitle: (state) => state.unittest.title,
     getUnittestId: (state) => state.unittest.id,
     getUnittestResults: (state) => state.results,
+    getUnittestSolved: (state) => state.solved,
   },
 });

@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+ID=$1
+
+if [[ "$ID" != "" ]]; then
+  mkdir -p "$ID/01"
+  xsel -bo > "$ID/01/test.json"
+fi

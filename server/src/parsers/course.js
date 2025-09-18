@@ -27,5 +27,6 @@ export const course = (dir) => {
     ...ctx, // uuid, tasks, hash
     title: desc.title,
     html: desc.html,
+    text: desc.text,
   }
 }

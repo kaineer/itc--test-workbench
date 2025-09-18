@@ -6,7 +6,8 @@
   "main": "src/index.js",
   "scripts": {
     "serve": "node .",
-    "test": "vitest"
+    "test": "vitest",
+    "export": "mkdir -p ../client/public/tasks ../client/public/courses && node ./src/scripts/import.js"
   },
   "keywords": [],
   "author": "",

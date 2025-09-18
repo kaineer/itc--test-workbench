@@ -3,11 +3,13 @@ import { taskSolutionSchema, type TaskData } from "@entities/types";
 
 export const taskApi = createApi({
   reducerPath: 'task/api',
-  baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:6401' }),
+  tagTypes: ['task'],
+  baseQuery: fetchBaseQuery({ baseUrl: '/' }),
   endpoints: (build) => ({
     getTask: build.query<TestcaseData, string>({
-      query: (id) => "/tasks/" + id,
+      query: (id) => "/tasks/" + id + ".json",
       responseSchema: taskSolutionSchema,
+      providesTags: ['task'],
     }),
   }),
 });

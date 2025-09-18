@@ -32,6 +32,6 @@ const SmartSidebar = () => {
   );
 }
 
-export const Sidebar = ({ stable = false }: Props) => {
+export const Sidebar = ({ stable = true }: Props) => {
   return stable ? <StableSidebar /> : <SmartSidebar />;
 }

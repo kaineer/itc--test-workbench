@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import classes from './TaskItem.module.css';
-import { MarkdownWithCode } from '@components/render/MarkdownWithCode';
+import { MarkdownWithCode, MarkdownWithoutCode } from '@components/render/MarkdownWithCode';
 
 interface Props {
   level?: number;
@@ -32,7 +32,7 @@ export const TaskItem = ({ level = 1, title, failed = false, waiting = true, ski
   return (
     <li className={ clsx(className, levelClass(level)) }>
       <label className={ labelClassName }>
-        <MarkdownWithCode inline={true} markdown={title} />
+        <MarkdownWithoutCode markdown={title} />
       </label>
     </li>
   )

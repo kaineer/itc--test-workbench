@@ -8,7 +8,7 @@ export const Courses = () => {
 
   return (
     <div className={classes.courses}>
-      <h1>Courses list</h1>
+      <h1>Список курсов</h1>
 
       { data && !isLoading &&
         courses.map((course) => <Course key={course.id} course={course} />) }

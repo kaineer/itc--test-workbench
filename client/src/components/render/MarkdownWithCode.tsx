@@ -6,7 +6,15 @@ import {ghcolors} from 'react-syntax-highlighter/dist/esm/styles/prism'
 
 interface Props {
   markdown: string;
-  inline: boolean;
+  inline?: boolean;
+}
+
+export const MarkdownWithoutCode = ({ markdown }: Omit<Props, 'inline'>) => {
+  return (
+    <div className={clsx(classes.markdown, classes.inline)}>
+      <Markdown children={markdown} />
+    </div>
+  )
 }
 
 export const MarkdownWithCode = ({ markdown, inline = false }: Props) => {

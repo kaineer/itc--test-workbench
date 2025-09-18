@@ -11,12 +11,12 @@ const dir = directory(join(__dirname, '../../data'));
 const { courses: list, coursesHash, tasksHash } = courses(dir);
 
 export default (fastify) => {
-  fastify.get("/courses", (req, res) => {
+  fastify.get("/courses.json", (req, res) => {
     const coursesRoutes = list.map((course) => ({ id: course.id, title: course.title, route: "/courses/" + course.uuid }));
     res.send({ courses: coursesRoutes });
   });
 
-  fastify.get("/courses/:uuid", (req, res) => {
+  fastify.get("/courses/:uuid.json", (req, res) => {
     const { uuid } = req.params;
     const { path } = coursesHash[uuid];
 
@@ -40,12 +40,12 @@ export default (fastify) => {
     }
   });
 
-  fastify.get("/tasks/:uuid", (req, res) => {
+  fastify.get("/tasks/:uuid.json", (req, res) => {
     const { uuid } = req.params;
-    const { path } = tasksHash[uuid];
+    const { path, courseUUID } = tasksHash[uuid];
 
     const taskData = task(directory(path));
-    const { title, template, description, cases, resultVars, courseUUID } = taskData;
+    const { title, template, description, cases, resultVars } = taskData;
 
     return { title, template, markdown: description.text, cases, resultVars,
       courseRoute: "/course/" + courseUUID
