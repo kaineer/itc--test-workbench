@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+now() {
+  date +%H:%M:%S
+}
+
+info() {
+  echo " $(now) [${PROJECT_NAME}][INFO ] $@"
+}
+
+info "Starting to deploy"
+(cd server && x expo && cd -) >/dev/null 2>&1
+info "Exported unittests"
+(cd client && npx vite build && scp -r dist/* jino:~/hosts/js && cd -) >/dev/null 2>&1
+info "Built and deployed"

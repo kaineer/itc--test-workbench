@@ -1,21 +1,20 @@
+import type { TestCase, Unittest } from "@/types/types";
 import { lines } from "../../utils/text";
-import type { TestCase } from "../unittest/testcase";
-import type { Unittest } from "../unittest/unittest";
 import { runner } from "./runner";
 
 const injectExtraction = (vars: string[], userCode: string) => {
   const resultVar = "__result";
-  const indent = l => "  " + l;
+  const indent = (l: string) => "  " + l;
 
   // "first" =>
   //   __result.first = (
   //      typeof first === 'undefined' ?
   //      void 0 : first
   //   );
-  const extraction = v => (
-    resultVar + "." + v +
-      " = (typeof " + v +
-      " === 'undefined' ? void 0 : " + v + ")"
+  const extraction = (vavName: string) => (
+    resultVar + "." + vavName +
+      " = (typeof " + vavName +
+      " === 'undefined' ? void 0 : " + vavName + ")"
   );
 
   return lines(

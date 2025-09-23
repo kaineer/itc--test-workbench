@@ -9,6 +9,7 @@ interface Item {
 }
 
 export interface TaskData extends Item {
+  solved?: boolean; // NOTE: just to remove warning
 }
 
 export interface CourseData extends Item {

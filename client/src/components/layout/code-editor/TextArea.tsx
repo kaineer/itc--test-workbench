@@ -30,7 +30,7 @@ export const TextArea = () => {
     if (codeId !== id) {
       dispatch(setCode(template));
     }
-  }, [id, codeId]);
+  }, [id, codeId, dispatch, setCode, template]);
 
   return (
     <CodeMirror

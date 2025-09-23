@@ -16,7 +16,7 @@ export const Solving = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (localStorage.itcLoadPrevious) {
+    if (localStorage.itcLoadPrevious === 'true') {
       if (taskUUID) {
         const tasks = JSON.parse(localStorage.itcJavascript || '{}')
         const code = tasks[taskUUID];
@@ -25,7 +25,7 @@ export const Solving = () => {
         }
       }
     }
-  }, [taskUUID]);
+  }, [taskUUID, dispatch, setCode]);
 
   return (
     <>

@@ -13,15 +13,16 @@ const blankUnittest: UnittestData = {
 interface UnittestResult {
   ok?: boolean;
   failed?: boolean;
+  waiting?: boolean;
 }
 
-interface SliceContent {
+export interface UnittestContent {
   unittest: UnittestData;
   results: UnittestResult[],
   solved: boolean;
 }
 
-const initialState: SliceContent = {
+const initialState: UnittestContent = {
   unittest: blankUnittest,
   results: [],
   solved: false,
@@ -31,12 +32,12 @@ export const unittestSlice = createSlice({
   name: 'unittest',
   initialState,
   reducers: {
-    setUnittest: (state: SliceContent, action: PayloadAction<UnittestData>) => {
+    setUnittest: (state: UnittestContent, action: PayloadAction<UnittestData>) => {
       state.unittest = action.payload;
-      state.results = state.unittest.cases.map((_) => ({ waiting: true }));
+      state.results = state.unittest.cases.map(() => ({ waiting: true }));
       state.solved = false;
     },
-    runUnittest: (state: SliceContent, action: PayloadAction<string>) => {
+    runUnittest: (state: UnittestContent, action: PayloadAction<string>) => {
       const userCode = action.payload;
       const goalResults = runUnittest(state.unittest, userCode);
 
@@ -44,6 +45,7 @@ export const unittestSlice = createSlice({
         try {
           return JSON.parse(localStorage.itcJavascript || "{}");
         } catch (err) {
+          console.error(err);
           return {};
         }
       }

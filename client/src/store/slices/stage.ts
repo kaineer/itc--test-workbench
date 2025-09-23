@@ -5,7 +5,7 @@ export const stageTask = "task";
 export const stageCourse = "course";
 export const stageList = "list";
 
-interface StageContent {
+export interface StageContent {
   stage: (
     "description" | "task" | "course" | "list"
   );

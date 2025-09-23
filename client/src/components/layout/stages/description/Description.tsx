@@ -19,10 +19,10 @@ export const Description = () => {
 
   useEffect(() => {
     if (task && !isLoading) {
-      const { resultVars, cases, uuid, template, title } = task;
+      const { resultVars, cases, template, title } = task;
       dispatch(setUnittest({ resultVars, cases, template, id: taskId, title }));
     }
-  }, [task, isLoading]);
+  }, [task, isLoading, dispatch, setUnittest, taskId]);
 
   if (isLoading) return null;
 

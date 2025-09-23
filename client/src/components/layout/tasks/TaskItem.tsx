@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import classes from './TaskItem.module.css';
-import { MarkdownWithCode, MarkdownWithoutCode } from '@components/render/MarkdownWithCode';
+import { MarkdownWithoutCode } from '@components/render/MarkdownWithCode';
 
 interface Props {
   level?: number;

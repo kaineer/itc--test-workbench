@@ -1,11 +1,11 @@
 import { describe, expect, it } from 'vitest'
 import {
   assertType,
-  assertIsBoolean,
-  assertIsString,
-  assertIsNumber,
-  assertIsBigint,
-  assertIsNull,
+  // assertIsBoolean,
+  // assertIsString,
+  // assertIsNumber,
+  // assertIsBigint,
+  // assertIsNull,
 } from './assert'
 
 describe("assertType()", () => {

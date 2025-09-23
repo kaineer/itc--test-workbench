@@ -23,7 +23,7 @@ export const NextButton = ({ text = "Дальше" }: ButtonProps) =>  {
     if (nextRoute) {
       navigate(nextRoute);
     }
-  }, [nextRoute]);
+  }, [nextRoute, navigate]);
 
   if (!nextRoute || !isSuccess || !solved) return null;
 

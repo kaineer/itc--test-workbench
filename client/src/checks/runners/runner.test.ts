@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest'
+import { expect, it } from 'vitest'
 import { runner } from "./runner"
 
 it("should use assert and throw an exception", () => {

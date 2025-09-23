@@ -1,8 +1,5 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router'
 import './App.css'
-import { MainContainer } from './components/layout/MainContainer'
-import { Sidebar } from './components/layout/sidebar/Sidebar'
-import { Stages } from './components/layout/stages/Stages'
 import { CourseListRoute } from './routes/course-list-route'
 import { CourseRoute } from './routes/course-route'
 import { Provider } from 'react-redux'

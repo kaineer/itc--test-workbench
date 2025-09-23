@@ -13,7 +13,7 @@ export const TaskRoute = () => {
 
   useEffect(() => {
     dispatch(setTask(taskId));
-  }, [taskId]);
+  }, [taskId, dispatch, setTask]);
 
   return (
     <MainContainer>

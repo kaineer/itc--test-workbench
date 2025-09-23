@@ -14,11 +14,12 @@ export const SyntaxChecker = () => {
     try {
       parseWithAcorn(code);
     } catch (err) {
+      console.log(err);
       valid = false;
     }
 
     dispatch(setValid(valid));
-  }, [code]);
+  }, [code, dispatch, setValid]);
 
   return null;
 }

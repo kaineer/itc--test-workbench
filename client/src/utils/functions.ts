@@ -1,6 +1,10 @@
 export const noop = () => null;
 
-export const compose = (...fns: any[]) => (obj: any) => {
+interface Fn {
+  (...args: unknown[]): unknown;
+}
+
+export const compose = (...fns: Fn[]) => (obj: unknown) => {
   let result = obj;
   fns.forEach((fn) => {
     result = fn(result);

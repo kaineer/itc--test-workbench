@@ -13,7 +13,7 @@ export const CourseRoute = () => {
 
   useEffect(() => {
     dispatch(setCourse(courseId));
-  }, [courseId]);
+  }, [courseId, dispatch, setCourse]);
 
   return (
     <MainContainer>

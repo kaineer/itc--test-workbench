@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+if [[ "$BUILD" == "true" ]]; then
+  npx vite build
+fi
+scp -r dist/* jino:~/hosts/js

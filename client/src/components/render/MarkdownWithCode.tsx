@@ -11,7 +11,7 @@ interface Props {
 
 export const MarkdownWithoutCode = ({ markdown }: Omit<Props, 'inline'>) => {
   return (
-    <div className={clsx(classes.markdown, classes.inline)}>
+    <div className={clsx(classes.markdownInline, classes.inline)}>
       <Markdown children={markdown} />
     </div>
   )
@@ -24,7 +24,7 @@ export const MarkdownWithCode = ({ markdown, inline = false }: Props) => {
         children={markdown}
         components={{
           code(props) {
-            const {children, className, node, ...rest} = props
+            const {children, className, ...rest} = props
             const match = /language-(\w+)/.exec(className || '')
             return match ? (
               <SyntaxHighlighter

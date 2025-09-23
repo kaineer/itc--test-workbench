@@ -1,9 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-interface CodeContent {
+export interface CodeContent {
   code: string;
   valid: boolean;
-  unittestId: string;
+  unittestId: string | null;
 }
 
 const initialValue = "";

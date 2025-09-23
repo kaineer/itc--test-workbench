@@ -65,6 +65,14 @@ export const assertIsString = assertType("string");
 export const assertIsNumber = assertType("number");
 export const assertIsBigint = assertType("bigint");
 export const assertIsFunction = assertType("function");
+export const assertIsUndefined = assertType("undefined");
+
+export const assertIsArrowFunction = (value: unknown, message?: string = "") => {
+  assert(
+    typeof(value) === 'function' && typeof(value.prototype) === 'undefined',
+    message
+  );
+}
 
 export const assertIsObject = (value: unknown, message?: string = "") => {
   assert(value && typeof value === "object", message);
@@ -93,8 +101,10 @@ export const asserts = {
   assertIsString,
   assertIsNumber,
   assertIsBoolean,
+  assertIsUndefined,
   assertIsBigint,
   assertIsFunction,
+  assertIsArrowFunction,
   assertIsNull,
   assertIsObject,
   assertIsTruthy,
