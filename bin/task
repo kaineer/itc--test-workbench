@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+COURSE=$(cat ./.course)
+TASK=$1
+
+TARGET_DIR="./data/courses/$COURSE/tasks/$TASK"
+
+yn -p \
+  "create task $COURSE/$TASK" \
+  mkdir -p "$TARGET_DIR/tests" && touch "$TARGET_DIR/description.md" && touch "$TARGET_DIR/template.js"
+
+e "$TARGET_DIR/description.md"

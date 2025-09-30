@@ -94,6 +94,26 @@ export const assertIsArray = (value: unknown, message?: string = "") => {
   assert(Array.isArray(value), message);
 }
 
+export const assertThrows = (value: unknown, message?: string = "") => {
+  assert(typeof value === "function", "should be a function");
+
+  try {
+    typeof value === "function" && value();
+    assert(false, message);
+  } catch (err) {
+  }
+}
+
+export const assertDoesNotThrow = (value: unknown, message?: string = "") => {
+  assert(typeof value === "function", "should be a function");
+
+  try {
+    typeof value === "function" && value();
+  } catch (err) {
+    assert(false, message + ": " + String(err));
+  }
+}
+
 export const asserts = {
   assert,
   assertEqual,
@@ -110,4 +130,6 @@ export const asserts = {
   assertIsTruthy,
   assertIsFalsey,
   assertIsArray,
+  assertThrows,
+  assertDoesNotThrow,
 }

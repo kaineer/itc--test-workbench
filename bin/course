@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+COURSE=$1
+
+TARGET_DIR="./data/courses/$COURSE"
+
+yn -p \
+  "create course #$COURSE" \
+  mkdir -p "$TARGET_DIR/tasks" && touch "$TARGET_DIR/description.md"
+
+echo "$COURSE" >.course

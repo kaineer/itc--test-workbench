@@ -1,0 +1,6 @@
+{
+  "9a8faf15-7775-4e30-88f9-e23fb3e7555a": "function fn() {}\n\nconst afn = () => {};\n\nfunction fn1(param) {\n    return param;\n}\n\nfunction add(a, b) {\n    return a + b;\n}\n\nfunction count(...args) {\n    if (args.length === 0) {\n        return 0;\n    }\n    if (args.length === 3) {\n        return 3;\n    }\n}",
+  "21b1fe2e-682b-4d95-aef3-12a61fb8d447": "function sum(...args) {\n    if (args.length === 0) {\n        return 0;\n    }\n    return args.reduce((total, current) => total + current, 0);\n}",
+  "921525ab-b56a-4947-a395-8e38f48a73ca": "function describe(fn) {\n    const name = fn.name || \"noname\";\n    const paramsCount = fn.length;\n    return ${name}/${paramsCount};\n}",
+  "dffeaf17-a6fe-4bdf-a01e-589a7fec3f51": "function isArrowFunction(fn) {\n    if (typeof fn !== 'function') return false;\n    if (fn === isArrowFunction) return true;\n    return !fn.hasOwnProperty('prototype') && fn.toString().includes('=>');\n}"
+}

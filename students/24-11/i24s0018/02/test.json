@@ -1,0 +1,6 @@
+{
+  "9a8faf15-7775-4e30-88f9-e23fb3e7555a": "// 1\n    function fn(a,b) {\n        return 'a+b'\n    }\n//2\n    const afn = (a,b) => {\n      return 'a+b';\n    };\n//3\n    const fn1 = function(param) {\n    return param;\n    };\n    \n// будет ли работать так? const fn1 = (a) => a; ?? \n//4\n    function add(a, b) { return a + b }\n//5 \n      function count(params) {\n        if (arguments.length === 0) {\n          return 0;\n        }\n        if (arguments.length === 3) {\n          return 3;\n        }\n      }\n\n  ",
+  "21b1fe2e-682b-4d95-aef3-12a61fb8d447": "//\n  function sum(...numbers) {\n    if (numbers.length === 0) return 0; {\n      return numbers.reduce((total, num) => total + num, 0);\n    }\n  }\n  ",
+  "921525ab-b56a-4947-a395-8e38f48a73ca": "//\n    function describe(fnc) {\n      const name = fnc.name || 'noname'\n      const count = fnc.length;\n      return ${name}/${count};\n    }",
+  "dffeaf17-a6fe-4bdf-a01e-589a7fec3f51": "//\n  const isArrowFunction = (fnc) => {\n    if (typeof fnc !== 'function') {\n        return false;\n    }\n    const functionString = fnc.toString().trim();\n    return (\n        functionString.includes('=>') &&\n        !functionString.startsWith('function') &&\n        !functionString.startsWith('class') &&\n        fnc.prototype === undefined\n    );\n};"
+}
