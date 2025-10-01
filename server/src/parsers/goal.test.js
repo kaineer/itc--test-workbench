@@ -67,3 +67,13 @@ describe("with yaml in comments", () => {
     expect(g.code.includes("depends:")).toBeFalsy();
   });
 });
+
+describe("with preamble", () => {
+  const filename = "preamble.js";
+  const content = dir.file(filename);
+  const g = goal(content, filename);
+
+  it("should return an object", () => {
+    // TODO: to be continued
+  })
+});
